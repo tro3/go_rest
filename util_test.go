@@ -13,6 +13,20 @@ func compareString(t *testing.T, val, exp, label string) {
 	}
 }
 
+func compareInt(t *testing.T, val, exp int, label string) {
+	if val != exp {
+		t.Errorf("Failure %s: Expected '%d', got '%d'", label, exp, val)
+	}
+}
+
+func checkNil(t *testing.T, val error, label string) bool {
+	if val != nil {
+		t.Errorf("Failure %s: Expected nil error, got '%s'", label, val.Error())
+		return true
+	}
+	return false
+}
+
 func TestPipe(t *testing.T) {
 	f1 := func(state *HttpState) {
 		state.Res.Write([]byte(state.Req.Method + " "))

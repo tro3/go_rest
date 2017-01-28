@@ -10,14 +10,6 @@ var Errors = map[int]string{
 	http.StatusNotFound:  "Not Found",
 }
 
-type HttpState struct {
-	Req *http.Request
-	Res http.ResponseWriter
-	Err int
-}
-
-type HttpStateFunc func(*HttpState)
-
 func Pipe(fns ...HttpStateFunc) http.HandlerFunc {
 	return func(res http.ResponseWriter, req *http.Request) {
 		state := &HttpState{req, res, 0}
