@@ -2,7 +2,6 @@ package go_rest
 
 import (
 	"encoding/json"
-	"net/http"
 	"time"
 )
 
@@ -22,9 +21,9 @@ func ServeUser(state *HttpState) {
 	state.SendJsonBytes(buf)
 }
 
-func SetupMux() *http.ServeMux {
-	var mux = http.NewServeMux()
-	mux.HandleFunc("/test", Pipe(ServeHello))
-	mux.HandleFunc("/api/user/1", Pipe(ServeUser))
-	return mux
+func SetupRouter() *Router {
+	var router = NewRouter()
+	router.Get("/test", Pipe(ServeHello))
+	router.Get("/api/user/1", Pipe(ServeUser))
+	return router
 }

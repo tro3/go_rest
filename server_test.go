@@ -8,7 +8,7 @@ import (
 )
 
 func TestHello(t *testing.T) {
-	ts := httptest.NewServer(SetupMux())
+	ts := httptest.NewServer(SetupRouter())
 	defer ts.Close()
 
 	res, err := http.Get(ts.URL + "/test")
@@ -26,7 +26,7 @@ func TestHello(t *testing.T) {
 }
 
 func TestUser(t *testing.T) {
-	ts := httptest.NewServer(SetupMux())
+	ts := httptest.NewServer(SetupRouter())
 	defer ts.Close()
 
 	res, err := http.Get(ts.URL + "/api/user/1")
