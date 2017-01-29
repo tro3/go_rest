@@ -1,4 +1,4 @@
-package rest
+package go_rest
 
 import "net/http"
 
@@ -13,6 +13,11 @@ func (self *HttpState) SendString(body string) {
 }
 
 func (self *HttpState) SendBytes(body []byte) {
+	self.Res.Write(body)
+}
+
+func (self *HttpState) SendJsonBytes(body []byte) {
+	self.Res.Header().Add("Content-Type", "application/json")
 	self.Res.Write(body)
 }
 

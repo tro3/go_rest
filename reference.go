@@ -1,6 +1,4 @@
-package rest
-
-import "fmt"
+package go_rest
 
 type Reference struct {
 	Collection string
@@ -8,7 +6,6 @@ type Reference struct {
 }
 
 func (self Reference) MarshalJSON() (json []byte, err error) {
-	fmt.Println(self)
 	err = nil
 	return []byte("Test"), err
 }

@@ -1,4 +1,4 @@
-package rest
+package go_rest
 
 import "time"
 
