@@ -5,11 +5,6 @@ import (
 	"net/http"
 )
 
-var Errors = map[int]string{
-	http.StatusForbidden: "Forbidden",
-	http.StatusNotFound:  "Not Found",
-}
-
 func Pipe(fns ...HttpStateFunc) http.HandlerFunc {
 	return func(res http.ResponseWriter, req *http.Request) {
 		state := &HttpState{req, res, 0}
