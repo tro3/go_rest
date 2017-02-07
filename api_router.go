@@ -19,11 +19,11 @@ type apiCommand struct {
 
 func apiCommands(e Endpoint) []apiCommand {
 	return []apiCommand{
-		apiCommand{"List", "GET", "/", e.GetList},
-		apiCommand{"Item", "GET", "/{id}", e.GetItem},
-		apiCommand{"Create", "POST", "/", e.CreateItem},
-		apiCommand{"Edit", "PUT", "/{id}", e.EditItem},
-		apiCommand{"Delete", "DELETE", "/{id}", e.DeleteItem},
+		{"List", "GET", "/", e.GetList},
+		{"Item", "GET", "/{id}", e.GetItem},
+		{"Create", "POST", "/", e.CreateItem},
+		{"Edit", "PUT", "/{id}", e.EditItem},
+		{"Delete", "DELETE", "/{id}", e.DeleteItem},
 	}
 }
 
